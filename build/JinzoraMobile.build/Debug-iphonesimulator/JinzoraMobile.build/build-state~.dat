@@ -1,0 +1,1328 @@
+TJinzoraMobile
+v7
+r1
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk
+c000000004AF0C10000000000000000EE
+t1257292032
+s238
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
+c000000004ABDEA6D000000000003E730
+t1253960301
+s255792
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
+c000000004ABDEF3C00000000000D4BE0
+t1253961532
+s871392
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004ABDC8DB0000000000193960
+t1253951707
+s1653088
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004ABDC8C50000000000000A22
+t1253951685
+s2594
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+c000000004ABDC8D300000000001097C0
+t1253951699
+s1087424
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetwork.h
+c000000004ABDC89C00000000000004CF
+t1253951644
+s1231
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004ABDC853000000000026EE30
+t1253951571
+s2551344
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004ABDC952000000000027E880
+t1253951826
+s2615424
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004ABDC93F0000000000001355
+t1253951807
+s4949
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSData.h
+c000000004ABDC93F0000000000000FA8
+t1253951807
+s4008
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h
+c000000004ABDC942000000000000576E
+t1253951810
+s22382
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers/MediaPlayer.h
+c000000004ABDF09F000000000000022F
+t1253961887
+s559
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+c000000004ABDF0B500000000000CB600
+t1253961909
+s833024
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CoreAnimation.h
+c000000004ABDCAC90000000000000341
+t1253952201
+s833
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004ABDCB2000000000000E5890
+t1253952288
+s940176
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004ABDEE1D0000000000000788
+t1253961245
+s1928
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004ABDEEE200000000016721E0
+t1253961442
+s23536096
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/CommonCrypto/CommonDigest.h
+c000000004748A1090000000000002500
+t1195942153
+s9472
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/pthread.h
+c000000004748A133000000000000380F
+t1195942195
+s14351
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AlbumArtView.h
+c000000004A82100B0000000000000166
+t1250037771
+s358
+i<UIKit/UIKit.h>
+i"Song.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AlbumArtView.m
+c000000004B69EB8B00000000000006AF
+t1265232779
+s1711
+i"AlbumArtView.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AudioStreamer.h
+c000000004A830B140000000000000F5B
+t1250102036
+s3931
+i<UIKit/UIKit.h>
+i<Cocoa/Cocoa.h>
+i<pthread.h>
+i<AudioToolbox/AudioToolbox.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AudioStreamer.m
+c000000004B2AD29A000000000000AEE2
+t1261097626
+s44770
+i"AudioStreamer.h"
+i<CFNetwork/CFNetwork.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/BrowseViewController.h
+c000000004A6F3A330000000000000403
+t1248803379
+s1027
+i<UIKit/UIKit.h>
+i"Utilities.h"
+i"RCSemaphore.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/BrowseViewController.m
+c000000004B73BB2C0000000000005621
+t1265875756
+s22049
+i"BrowseViewController.h"
+i"JinzoraMobileAppDelegate.h"
+i"JSON.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/JSON.h
+c000000004A0F200400000000000008F9
+t1242505220
+s2297
+i"SBJSON.h"
+i"NSObject+SBJSON.h"
+i"NSString+SBJSON.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSObject+SBJSON.h
+c000000004A0F24C20000000000000A01
+t1242506434
+s2561
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSObject+SBJSON.m
+c000000004A0F34EF00000000000008B9
+t1242510575
+s2233
+i"NSObject+SBJSON.h"
+i"SBJsonWriter.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSString+SBJSON.h
+c000000004A0F3B6B0000000000000916
+t1242512235
+s2326
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSString+SBJSON.m
+c000000004A0F355C000000000000089F
+t1242510684
+s2207
+i"NSString+SBJSON.h"
+i"SBJsonParser.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJSON.h
+c000000004A15BFA70000000000000AED
+t1242939303
+s2797
+i<Foundation/Foundation.h>
+i"SBJsonParser.h"
+i"SBJsonWriter.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJSON.m
+c000000004A19CDEE0000000000001ABC
+t1243205102
+s6844
+i"SBJSON.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonBase.h
+c000000004A19CE620000000000000B82
+t1243205218
+s2946
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonBase.m
+c000000004A19CDA20000000000000AC1
+t1243205026
+s2753
+i"SBJsonBase.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonParser.h
+c000000004A19CAE20000000000000C0B
+t1243204322
+s3083
+i<Foundation/Foundation.h>
+i"SBJsonBase.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonParser.m
+c000000004A19CAC400000000000036CF
+t1243204292
+s14031
+i"SBJsonParser.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonWriter.h
+c000000004A2144E20000000000001140
+t1243694306
+s4416
+i<Foundation/Foundation.h>
+i"SBJsonBase.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonWriter.m
+c000000004A2145230000000000001E83
+t1243694371
+s7811
+i"SBJsonWriter.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JinzoraMobileAppDelegate.h
+c000000004AF082BA00000000000003E0
+t1257276090
+s992
+i<UIKit/UIKit.h>
+i"BrowseViewController.h"
+i"PlayViewController.h"
+i"PreferencesViewController.h"
+i"ServersViewController.h"
+i"Preferences.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JinzoraMobileAppDelegate.m
+c000000004B6BDBD30000000000000A70
+t1265359827
+s2672
+i"JinzoraMobileAppDelegate.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSData+Base64.h
+c000000004A5E199E000000000000032C
+t1247680926
+s812
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSData+Base64.m
+c000000004A2F219F0000000000001F68
+t1244602783
+s8040
+i"NSData+Base64.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSString+XMLExtensions.h
+c000000004A4142650000000000000111
+t1245790821
+s273
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSString+XMLExtensions.m
+c000000004A4142650000000000000A5D
+t1245790821
+s2653
+i"NSString+XMLExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlayViewController.h
+c000000004A8C5E05000000000000074B
+t1250713093
+s1867
+i<UIKit/UIKit.h>
+i"AudioStreamer.h"
+i"Song.h"
+i"Playlist.h"
+i"TrackHeaderView.h"
+i"AlbumArtView.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlayViewController.m
+c000000004B6BF12A0000000000004490
+t1265365290
+s17552
+i"PlayViewController.h"
+i<QuartzCore/CoreAnimation.h>
+i<MediaPlayer/MediaPlayer.h>
+i<CFNetwork/CFNetwork.h>
+i"PlaylistViewController.h"
+i"Utilities.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlayViewController.xib
+c000000004A80C04A000000000000538A
+t1249951818
+s21386
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Playlist.h
+c000000004A7C9DC100000000000003D8
+t1249680833
+s984
+i<Foundation/Foundation.h>
+i"Song.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Playlist.m
+c000000004A8DBCEE000000000000128E
+t1250802926
+s4750
+i"Playlist.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlaylistViewController.h
+c000000004B73B94B00000000000001DB
+t1265875275
+s475
+i"Utilities.h"
+i<UIKit/UIKit.h>
+i"Playlist.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlaylistViewController.m
+c000000004B73BB5400000000000034D8
+t1265875796
+s13528
+i"PlaylistViewController.h"
+i"PlayViewController.h"
+i"JinzoraMobileAppDelegate.h"
+i"Utilities.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Preferences.h
+c000000004B73BA3E000000000000049A
+t1265875518
+s1178
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Preferences.m
+c000000004B73BA380000000000001037
+t1265875512
+s4151
+i"Preferences.h"
+i<CommonCrypto/CommonDigest.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PreferencesViewController.h
+c000000004B00F3F100000000000000F9
+t1258353649
+s249
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PreferencesViewController.m
+c000000004B6BDD380000000000000816
+t1265360184
+s2070
+i"PreferencesViewController.h"
+i"JinzoraMobileAppDelegate.h"
+i"Utilities.h"
+i"ServerEditViewController.h"
+i"Preferences.h"
+i"NSData+Base64.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/RCSemaphore.h
+c000000004A622C9C0000000000000188
+t1247947932
+s392
+i<Foundation/Foundation.h>
+i<pthread.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/RCSemaphore.m
+c000000004A622DBA0000000000000417
+t1247948218
+s1047
+i"RCSemaphore.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServerEditViewController.h
+c000000004B045E2600000000000001D2
+t1258577446
+s466
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServerEditViewController.m
+c000000004B73B2F3000000000000168D
+t1265873651
+s5773
+i"ServerEditViewController.h"
+i"JinzoraMobileAppDelegate.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServerEditViewController.xib
+c000000004AF117D20000000000005277
+t1257314258
+s21111
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServersViewController.h
+c000000004AF0829F00000000000000F8
+t1257276063
+s248
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServersViewController.m
+c000000004B6BDEAE0000000000001D14
+t1265360558
+s7444
+i"ServersViewController.h"
+i"ServerEditViewController.h"
+i"JinzoraMobileAppDelegate.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Song.h
+c000000004B6A09FC00000000000003B0
+t1265240572
+s944
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Song.m
+c000000004B6A6F340000000000000DB7
+t1265266484
+s3511
+i"Song.h"
+i"JinzoraMobileAppDelegate.h"
+i"JSON.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/TrackHeaderView.h
+c000000004A57AF88000000000000017C
+t1247260552
+s380
+i<UIKit/UIKit.h>
+i"Song.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/TrackHeaderView.m
+c000000004A69FEC8000000000000086A
+t1248460488
+s2154
+i"TrackHeaderView.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Utilities.h
+c000000004B73BB0E000000000000018C
+t1265875726
+s396
+i<Foundation/Foundation.h>
+i"XMLRPCResponse.h"
+i"XMLRPCRequest.h"
+i"XMLRPCConnection.h"
+i"XMLRPCRequest+RuvenExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Utilities.m
+c000000004B73BAB80000000000000457
+t1265875640
+s1111
+i"Utilities.h"
+i"JinzoraMobileAppDelegate.h"
+i"NSData+Base64.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCConnection.h
+c000000004A4142650000000000000809
+t1245790821
+s2057
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCConnection.m
+c000000004A41426500000000000011F2
+t1245790821
+s4594
+i"XMLRPCConnection.h"
+i"XMLRPCRequest.h"
+i"XMLRPCResponse.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCDecoder.h
+c000000004A4142650000000000000581
+t1245790821
+s1409
+i<Foundation/Foundation.h>
+i"XMLValueDecoder.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCDecoder.m
+c000000004A4142650000000000000D25
+t1245790821
+s3365
+i"XMLRPCDecoder.h"
+i"XMLRPCExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCEncoder.h
+c000000004A41426500000000000005B9
+t1245790821
+s1465
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCEncoder.m
+c000000004A4142650000000000002187
+t1245790821
+s8583
+i"XMLRPCEncoder.h"
+i"XMLRPCExtensions.h"
+i"NSString+XMLExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCExtensions.h
+c000000004A4142650000000000000590
+t1245790821
+s1424
+i<Foundation/NSData.h>
+i<Foundation/NSString.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCExtensions.m
+c000000004A41426500000000000014A2
+t1245790821
+s5282
+i"XMLRPCExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest+RuvenExtensions.h
+c000000004A5E4023000000000000019C
+t1247690787
+s412
+i<Foundation/Foundation.h>
+i"XMLRPCRequest.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest+RuvenExtensions.m
+c000000004A5E41BE0000000000000284
+t1247691198
+s644
+i"XMLRPCRequest+RuvenExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest.h
+c000000004A41426500000000000006FB
+t1245790821
+s1787
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest.m
+c000000004A4142650000000000000E50
+t1245790821
+s3664
+i"XMLRPCRequest.h"
+i"XMLRPCEncoder.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCResponse.h
+c000000004A4142650000000000000609
+t1245790821
+s1545
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCResponse.m
+c000000004A4142650000000000000AB9
+t1245790821
+s2745
+i"XMLRPCResponse.h"
+i"XMLRPCDecoder.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLValueDecoder.h
+c000000004A41426500000000000002F0
+t1245790821
+s752
+i<Foundation/Foundation.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLValueDecoder.m
+c000000004A73823700000000000019A5
+t1249083959
+s6565
+i"XMLValueDecoder.h"
+i"XMLRPCExtensions.h"
+i"NSString+XMLExtensions.h"
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Default.png
+c000000004A8DDE5C000000000002A558
+t1250811484
+s173400
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/JinzoraMobile_Prefix.pch
+c000000004A566ACB00000000000000C3
+t1247177419
+s195
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/JinzoraSmall.png
+c000000004B6BF52C0000000000002793
+t1265366316
+s10131
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/MainWindow.xib
+c000000004A566ACB0000000000001F38
+t1247177419
+s7992
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/PreferencesViewController.xib
+c000000004B73BDB80000000000002508
+t1265876408
+s9480
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/add_bar_icon.png
+c000000004A8B1C6B0000000000000B81
+t1250630763
+s2945
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/add_tiny.png
+c000000004A383E060000000000001AEF
+t1245199878
+s6895
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/add_tiny_pressed.png
+c000000004A383E250000000000001AF7
+t1245199909
+s6903
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/backA.png
+c000000004A3AE55B00000000000010F2
+t1245373787
+s4338
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/backB.png
+c000000004A3AE87200000000000010F6
+t1245374578
+s4342
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/back_pressedA.png
+c000000004A3AE6590000000000001033
+t1245374041
+s4147
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/back_pressedB.png
+c000000004A3AE8960000000000000FAB
+t1245374614
+s4011
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/background.png
+c000000004A8DDE5C000000000001D7BD
+t1250811484
+s120765
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/backgroundblue.png
+c000000004A8B1AA5000000000008679C
+t1250630309
+s550812
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/backgroundold.png
+c000000004A8B19C5000000000005D05A
+t1250630085
+s381018
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/backgroundorigin.png
+c000000004A1632A50000000000017C3D
+t1242968741
+s97341
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/browseview.png
+c000000004A1A00C100000000000000EA
+t1243218113
+s234
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app
+t1272487129
+s1564
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app.dSYM
+t1272480139
+s102
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/Default.png
+t1265879504
+s173400
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/Info.plist
+t1265879503
+s634
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/JinzoraMobile
+t1269886016
+s254032
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/JinzoraSmall.png
+t1265879504
+s10131
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/MainWindow.nib
+t1269886011
+s1351
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/PkgInfo
+t1265879503
+s8
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/PlayViewController.nib
+t1269886011
+s3766
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/PreferencesViewController.nib
+t1269886012
+s2374
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/ServerEditViewController.nib
+t1269886012
+s3907
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/add_bar_icon.png
+t1265879504
+s2945
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/add_tiny.png
+t1265879504
+s6895
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/add_tiny_pressed.png
+t1265879504
+s6903
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/backA.png
+t1265879504
+s4338
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/backB.png
+t1265879504
+s4342
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/back_pressedA.png
+t1265879504
+s4147
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/back_pressedB.png
+t1265879504
+s4011
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/background.png
+t1265879504
+s120765
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/backgroundblue.png
+t1265879504
+s550812
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/backgroundold.png
+t1265879504
+s381018
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/backgroundorigin.png
+t1265879503
+s97341
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/browseview.png
+t1265879504
+s234
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/bwicon.png
+t1265879504
+s11044
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/defaultaa.jpg
+t1265879504
+s6567
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/forwardA.png
+t1265879504
+s4086
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/forwardB.png
+t1265879504
+s4106
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/forward_pressedA.png
+t1265879504
+s3990
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/forward_pressedB.png
+t1265879504
+s3788
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pauseA.png
+t1265879504
+s2995
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pauseB.png
+t1265879504
+s2517
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pause_pressedA.png
+t1265879504
+s2986
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pause_pressedB.png
+t1265879504
+s2353
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pause_small.png
+t1265879504
+s1348
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/pause_small_pressed.png
+t1265879504
+s1311
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/playA.png
+t1265879504
+s3941
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/playB.png
+t1265879504
+s3986
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/play_bar_icon.png
+t1265879504
+s2980
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/play_pressedA.png
+t1265879504
+s3862
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/play_pressedB.png
+t1265879504
+s3748
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/play_small.png
+t1265879504
+s1307
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/play_small_presed.png
+t1265879504
+s1274
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/playlist_bar_icon.png
+t1265879504
+s2834
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/playview.png
+t1265879504
+s258
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/preferencesview.png
+t1265879504
+s413
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/serversview.png
+t1265879504
+s270
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/AlbumArtView.o
+t1269886014
+s18216
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/AudioStreamer.o
+t1269886015
+s93648
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/BrowseViewController.o
+t1269886014
+s110764
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/JinzoraMobile.LinkFileList
+c000000004B73C9CF00000000000014DB
+t1265879503
+s5339
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/JinzoraMobileAppDelegate.o
+t1269886014
+s61600
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSData+Base64.o
+t1269886015
+s12944
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSObject+SBJSON.o
+t1269886015
+s8516
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSString+SBJSON.o
+t1269886015
+s8512
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSString+XMLExtensions.o
+t1269886014
+s11676
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PlayViewController.o
+t1269886015
+s98940
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Playlist.o
+t1269886014
+s32052
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PlaylistViewController.o
+t1269886015
+s94332
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Preferences.o
+t1269886015
+s24384
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PreferencesViewController.o
+t1269886015
+s33272
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/RCSemaphore.o
+t1269886015
+s10748
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJSON.o
+t1269886015
+s19000
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonBase.o
+t1269886015
+s13504
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonParser.o
+t1269886015
+s35012
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonWriter.o
+t1269886015
+s25352
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/ServerEditViewController.o
+t1269886015
+s63100
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/ServersViewController.o
+t1269886015
+s63424
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Song.o
+t1269886014
+s64908
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/TrackHeaderView.o
+t1269886014
+s19908
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Utilities.o
+t1269886014
+s8344
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCConnection.o
+t1269886014
+s19204
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCDecoder.o
+t1269886014
+s15388
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCEncoder.o
+t1269886014
+s31404
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCExtensions.o
+t1269886014
+s12180
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCRequest+RuvenExtensions.o
+t1269886015
+s7932
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCRequest.o
+t1269886014
+s19260
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCResponse.o
+t1269886014
+s15988
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLValueDecoder.o
+t1269886014
+s24632
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/main.o
+t1269886014
+s6140
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/bwicon.png
+c000000004A6639840000000000002B24
+t1248213380
+s11044
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/defaultaa.jpg
+c000000004B69E93400000000000019A7
+t1265232180
+s6567
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/forwardA.png
+c000000004A3AE55C0000000000000FF6
+t1245373788
+s4086
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/forwardB.png
+c000000004A3AE872000000000000100A
+t1245374578
+s4106
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/forward_pressedA.png
+c000000004A3AE6590000000000000F96
+t1245374041
+s3990
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/forward_pressedB.png
+c000000004A3AE8960000000000000ECC
+t1245374614
+s3788
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/main.m
+c000000004A566ACB000000000000016D
+t1247177419
+s365
+i<UIKit/UIKit.h>
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pauseA.png
+c000000004A3AE55C0000000000000BB3
+t1245373788
+s2995
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pauseB.png
+c000000004A3AE87200000000000009D5
+t1245374578
+s2517
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pause_pressedA.png
+c000000004A3AE65A0000000000000BAA
+t1245374042
+s2986
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pause_pressedB.png
+c000000004A3AE8960000000000000931
+t1245374614
+s2353
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pause_small.png
+c000000004A383DA50000000000000544
+t1245199781
+s1348
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/pause_small_pressed.png
+c000000004A383D86000000000000051F
+t1245199750
+s1311
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/playA.png
+c000000004A3AE55B0000000000000F65
+t1245373787
+s3941
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/playB.png
+c000000004A3AE8720000000000000F92
+t1245374578
+s3986
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/play_bar_icon.png
+c000000004A8B1C6B0000000000000BA4
+t1250630763
+s2980
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/play_pressedA.png
+c000000004A3AE6590000000000000F16
+t1245374041
+s3862
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/play_pressedB.png
+c000000004A3AE8960000000000000EA4
+t1245374614
+s3748
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/play_small.png
+c000000004A383DA4000000000000051B
+t1245199780
+s1307
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/play_small_presed.png
+c000000004A383D8500000000000004FA
+t1245199749
+s1274
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/playlist_bar_icon.png
+c000000004A8B21080000000000000B12
+t1250631944
+s2834
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/playview.png
+c0000000049F45A040000000000000102
+t1240750596
+s258
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/preferencesview.png
+c000000004972258E000000000000019D
+t1232217486
+s413
+
+N/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/serversview.png
+c000000004A3EAE04000000000000010E
+t1245621764
+s270
+
+N/var/folders/sf/sf1GjT1JFS8mN2Afx+2l0k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/JinzoraMobile_Prefix-doerqhhjssuqfccgngvqkavssmsx/JinzoraMobile_Prefix.pch.gch
+t2
+s0
+
+NJinzoraMobile-Info.plist
+c000000004B73C0FD00000000000003C5
+t1265877245
+s965
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/AlbumArtView.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AlbumArtView.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/AudioStreamer.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/AudioStreamer.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/BrowseViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/BrowseViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/JinzoraMobileAppDelegate.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JinzoraMobileAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSData+Base64.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSData+Base64.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSObject+SBJSON.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSObject+SBJSON.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSString+SBJSON.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/NSString+SBJSON.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/NSString+XMLExtensions.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/NSString+XMLExtensions.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PlayViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlayViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Playlist.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Playlist.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PlaylistViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlaylistViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Preferences.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Preferences.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/PreferencesViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PreferencesViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/RCSemaphore.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/RCSemaphore.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJSON.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJSON.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonBase.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonBase.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonParser.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonParser.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/SBJsonWriter.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/JSON/SBJsonWriter.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/ServerEditViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServerEditViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/ServersViewController.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServersViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Song.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Song.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/TrackHeaderView.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/TrackHeaderView.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/Utilities.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/Utilities.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCConnection.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCConnection.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCDecoder.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCDecoder.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCEncoder.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCEncoder.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCExtensions.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCExtensions.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCRequest+RuvenExtensions.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest+RuvenExtensions.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCRequest.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCRequest.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLRPCResponse.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLRPCResponse.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/XMLValueDecoder.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/XMLRPC/XMLValueDecoder.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/JinzoraMobile.build/Debug-iphonesimulator/JinzoraMobile.build/Objects-normal/i386/main.o "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileXIB "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/PlayViewController.xib"
+r0
+
+CCompileXIB "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/Classes/ServerEditViewController.xib"
+r0
+
+CCompileXIB "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/MainWindow.xib"
+r0
+
+CCompileXIB "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/PreferencesViewController.xib"
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/Default.png Default.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/JinzoraSmall.png JinzoraSmall.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/add_bar_icon.png add_bar_icon.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/add_tiny.png add_tiny.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/add_tiny_pressed.png add_tiny_pressed.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/backA.png backA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/backB.png backB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/back_pressedA.png back_pressedA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/back_pressedB.png back_pressedB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/background.png background.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/backgroundblue.png backgroundblue.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/backgroundold.png backgroundold.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/backgroundorigin.png backgroundorigin.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/browseview.png browseview.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/bwicon.png bwicon.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/defaultaa.jpg defaultaa.jpg
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/forwardA.png forwardA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/forwardB.png forwardB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/forward_pressedA.png forward_pressedA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/forward_pressedB.png forward_pressedB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pauseA.png pauseA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pauseB.png pauseB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pause_pressedA.png pause_pressedA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pause_pressedB.png pause_pressedB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pause_small.png pause_small.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/pause_small_pressed.png pause_small_pressed.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/playA.png playA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/playB.png playB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/play_bar_icon.png play_bar_icon.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/play_pressedA.png play_pressedA.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/play_pressedB.png play_pressedB.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/play_small.png play_small.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/play_small_presed.png play_small_presed.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/playlist_bar_icon.png playlist_bar_icon.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/playview.png playview.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/preferencesview.png preferencesview.png
+r0
+
+CCpResource build/Debug-iphonesimulator/JinzoraMobile.app/serversview.png serversview.png
+r0
+
+CGenerateDSYMFile "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app.dSYM" "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/JinzoraMobile"
+r0
+
+CLd "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/JinzoraMobile" normal i386
+r0
+
+CProcessInfoPlistFile "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app/Info.plist" JinzoraMobile-Info.plist
+r0
+
+CProcessPCH /var/folders/sf/sf1GjT1JFS8mN2Afx+2l0k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/JinzoraMobile_Prefix-doerqhhjssuqfccgngvqkavssmsx/JinzoraMobile_Prefix.pch.gch JinzoraMobile_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CTouch "/Users/ruven/Dropbox/Releases/Jinzora Mobile/JinzoraMobile/build/Debug-iphonesimulator/JinzoraMobile.app"
+r0
+
