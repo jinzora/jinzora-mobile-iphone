@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,7 +58,6 @@
 		15AD8CAE10A0BA1F00074A9B /* ServersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD8CAD10A0BA1F00074A9B /* ServersViewController.m */; };
 		15CF7AC71006A59B000C2E75 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CF7AC61006A59B000C2E75 /* Utilities.m */; };
 		15CF7AD31006A5E8000C2E75 /* backgroundorigin.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CF7ACA1006A5E8000C2E75 /* backgroundorigin.png */; };
-		15CF7AE01006A61E000C2E75 /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CF7ADF1006A61E000C2E75 /* NSString+XMLExtensions.m */; };
 		15CF7AF01006A636000C2E75 /* XMLValueDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CF7AE31006A636000C2E75 /* XMLValueDecoder.m */; };
 		15CF7AF11006A636000C2E75 /* XMLRPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CF7AE51006A636000C2E75 /* XMLRPCConnection.m */; };
 		15CF7AF21006A636000C2E75 /* XMLRPCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CF7AE71006A636000C2E75 /* XMLRPCDecoder.m */; };
@@ -87,6 +86,12 @@
 		15EBC6491012EAC500A80EFD /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EBC6421012EAC500A80EFD /* SBJsonParser.m */; };
 		15EBC64A1012EAC500A80EFD /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EBC6441012EAC500A80EFD /* SBJsonWriter.m */; };
 		15F6FD021030EA3D00D9AA50 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F6FD001030EA3D00D9AA50 /* AudioStreamer.m */; };
+		1837786015B9316900BD78EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1837785F15B9316900BD78EB /* SystemConfiguration.framework */; };
+		1837786315B9336600BD78EB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1837786215B9336600BD78EB /* Reachability.m */; };
+		18890DEB15A951AA00F5B581 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18890DEA15A951AA00F5B581 /* DownloadViewController.m */; };
+		18890DEF15A9577A00F5B581 /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18890DEE15A9577A00F5B581 /* NSString+XMLExtensions.m */; };
+		188AF8AC15AAA16C002CF1A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188AF8AB15AAA16C002CF1A1 /* AVFoundation.framework */; };
+		188C727C15BC9B81004F7475 /* MyAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 188C727B15BC9B81004F7475 /* MyAVAudioPlayer.m */; };
 		1D3623260D0F684500981E51 /* JinzoraMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* JinzoraMobileAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -158,8 +163,6 @@
 		15CF7AC51006A59B000C2E75 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		15CF7AC61006A59B000C2E75 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		15CF7ACA1006A5E8000C2E75 /* backgroundorigin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundorigin.png; sourceTree = "<group>"; };
-		15CF7ADE1006A61E000C2E75 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
-		15CF7ADF1006A61E000C2E75 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
 		15CF7AE21006A636000C2E75 /* XMLValueDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLValueDecoder.h; sourceTree = "<group>"; };
 		15CF7AE31006A636000C2E75 /* XMLValueDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLValueDecoder.m; sourceTree = "<group>"; };
 		15CF7AE41006A636000C2E75 /* XMLRPCConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnection.h; sourceTree = "<group>"; };
@@ -210,6 +213,16 @@
 		15EBC6441012EAC500A80EFD /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		15F6FD001030EA3D00D9AA50 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		15F6FD011030EA3D00D9AA50 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		1837785F15B9316900BD78EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1837786115B9334E00BD78EB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1837786215B9336600BD78EB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		18890DE915A951AA00F5B581 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		18890DEA15A951AA00F5B581 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		18890DED15A9570200F5B581 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
+		18890DEE15A9577A00F5B581 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
+		188AF8AB15AAA16C002CF1A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		188C727A15BC9A77004F7475 /* MyAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAVAudioPlayer.h; sourceTree = "<group>"; };
+		188C727B15BC9B81004F7475 /* MyAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAVAudioPlayer.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* JinzoraMobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JinzoraMobileAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* JinzoraMobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JinzoraMobileAppDelegate.m; sourceTree = "<group>"; };
@@ -227,6 +240,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1837786015B9316900BD78EB /* SystemConfiguration.framework in Frameworks */,
+				188AF8AC15AAA16C002CF1A1 /* AVFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -252,6 +267,8 @@
 				1D3623250D0F684500981E51 /* JinzoraMobileAppDelegate.m */,
 				15CF7CA41006AFD8000C2E75 /* BrowseViewController.h */,
 				15CF7CA51006AFD9000C2E75 /* BrowseViewController.m */,
+				18890DE915A951AA00F5B581 /* DownloadViewController.h */,
+				18890DEA15A951AA00F5B581 /* DownloadViewController.m */,
 				15CF7D8F1006BF51000C2E75 /* PlayViewController.h */,
 				15CF7D901006BF51000C2E75 /* PlayViewController.m */,
 				15E216DC100BB83D003283CF /* PlaylistViewController.h */,
@@ -278,8 +295,12 @@
 				15686CBF100C05DB00369DE3 /* Preferences.m */,
 				15CF7D401006B911000C2E75 /* Playlist.h */,
 				15CF7D411006B911000C2E75 /* Playlist.m */,
+				1837786215B9336600BD78EB /* Reachability.m */,
+				1837786115B9334E00BD78EB /* Reachability.h */,
 				15CF7D421006B911000C2E75 /* Song.h */,
 				15CF7D431006B911000C2E75 /* Song.m */,
+				188C727A15BC9A77004F7475 /* MyAVAudioPlayer.h */,
+				188C727B15BC9B81004F7475 /* MyAVAudioPlayer.m */,
 				15F6FD011030EA3D00D9AA50 /* AudioStreamer.h */,
 				15F6FD001030EA3D00D9AA50 /* AudioStreamer.m */,
 				155E13E4101263C100EB8765 /* RCSemaphore.h */,
@@ -336,18 +357,10 @@
 		15CF7ADC1006A61E000C2E75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				15CF7ADD1006A61E000C2E75 /* Categories */,
+				18890DED15A9570200F5B581 /* NSString+XMLExtensions.h */,
+				18890DEE15A9577A00F5B581 /* NSString+XMLExtensions.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		15CF7ADD1006A61E000C2E75 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				15CF7ADE1006A61E000C2E75 /* NSString+XMLExtensions.h */,
-				15CF7ADF1006A61E000C2E75 /* NSString+XMLExtensions.m */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		15CF7AE11006A636000C2E75 /* XMLRPC */ = {
@@ -440,6 +453,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188AF8AB15AAA16C002CF1A1 /* AVFoundation.framework */,
+				1837785F15B9316900BD78EB /* SystemConfiguration.framework */,
 				15E3B6C61028DA28007B0911 /* AddressBookUI.framework */,
 				15E3B6C21028DA20007B0911 /* AddressBook.framework */,
 				15CF7D871006BE49000C2E75 /* AudioToolbox.framework */,
@@ -478,8 +493,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "JinzoraMobile" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -557,7 +575,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* JinzoraMobileAppDelegate.m in Sources */,
 				15CF7AC71006A59B000C2E75 /* Utilities.m in Sources */,
-				15CF7AE01006A61E000C2E75 /* NSString+XMLExtensions.m in Sources */,
 				15CF7AF01006A636000C2E75 /* XMLValueDecoder.m in Sources */,
 				15CF7AF11006A636000C2E75 /* XMLRPCConnection.m in Sources */,
 				15CF7AF21006A636000C2E75 /* XMLRPCDecoder.m in Sources */,
@@ -589,6 +606,10 @@
 				15126A4D1261235D000C7743 /* RepSettingsViewController.m in Sources */,
 				15126A8112612C5F000C7743 /* FollowersViewController.m in Sources */,
 				15126B0912624530000C7743 /* RecentsViewController.m in Sources */,
+				18890DEB15A951AA00F5B581 /* DownloadViewController.m in Sources */,
+				18890DEF15A9577A00F5B581 /* NSString+XMLExtensions.m in Sources */,
+				1837786315B9336600BD78EB /* Reachability.m in Sources */,
+				188C727C15BC9B81004F7475 /* MyAVAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,10 +626,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "12C56783-6D23-40B3-B0D9-92FB6BD61A3B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "12C56783-6D23-40B3-B0D9-92FB6BD61A3B";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -667,10 +687,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.0.sdk/usr/include/libxml2/**";
 				OTHER_LDFLAGS = "-lxml2";
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -683,10 +702,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

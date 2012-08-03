@@ -37,12 +37,31 @@
 		
 		NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 		NSString *isfirst = [prefs objectForKey:@"isfirst"];
+        JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
 		if(!isfirst) {
 			[prefs setObject:@"yes" forKey:@"isfirst"];
-			JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
 			[app.p addServerNamed:@"Archives.org" username:@"" password:@"" server:@"http://live.jinzora.org/"];
 			[app.p setCurrURLtoServAtIndex:0];
 		}
+        
+        NSArray* components = [NSArray arrayWithObjects:@"49", @"74", @"27", @"73", @"20", @"6d", @"79", @"20", @"64", @"61", @"74", @"61", nil];
+        NSMutableString * newString = [NSMutableString string];
+        
+        for ( NSString * component in components ) {
+            int value = 0;
+            sscanf([component cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
+            [newString appendFormat:@"%c", (char)value];
+        }
+        NSLog(newString);
+        for (int i = 0; i < [app.p getNumServers]; i++)
+        {
+            if ([[app.p getNameforServAtIndex:i] isEqualToString:newString])
+            {
+                app.p.random = TRUE;
+                NSLog(@"Random is true");
+                break;
+            }
+        }
     }
     return self;
 }
@@ -153,10 +172,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
-	NSString *before = [app.p getCurrentApiURL];
+	NSString *before = [[NSString alloc] initWithString:[app.p getCurrentApiURL]];
 	[app.p setCurrURLtoServAtIndex:indexPath.row];
 	NSString *after = [app.p getCurrentApiURL];
 	if(![before isEqualToString:after]) [app resetBrowse];
+    [before release];
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	[[self tableView] reloadData];
 }

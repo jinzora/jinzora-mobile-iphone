@@ -17,6 +17,7 @@
 }
 
 +(NSMutableArray*)parseM3U:(NSArray*)playlist_tokenized;
+-(NSUInteger) songCount;
 -(id) init;
 -(id) initWithNSData:(NSData*) playlist_data;
 - (void) addToPlaylist:(Playlist*) playlist;
@@ -25,6 +26,7 @@
 - (Song*) getCurrentSong;
 - (BOOL) canGoForward;
 - (BOOL) canGoBack;
+-(void) addSong:(Song *)song atIndex:(NSUInteger)index;
 -(void) removeSongAtIndex:(NSUInteger)index;
 -(void) exchangeSongAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex ;
 -(NSUInteger) songCount;

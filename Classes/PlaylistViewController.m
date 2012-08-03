@@ -52,13 +52,11 @@
 	if([sender selectedSegmentIndex] == 0)
 	{
 		UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Save Playlist" message:@"this gets covered" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
-		myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+		myTextField = [[UITextField alloc] init];
 		myTextField.delegate = self;
 		[myTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
 		[myTextField setBackgroundColor:[UIColor whiteColor]];
 		[myAlertView addSubview:myTextField];
-		CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
-		[myAlertView setTransform:myTransform];
 		[myAlertView show];
 		[myAlertView release];
 		

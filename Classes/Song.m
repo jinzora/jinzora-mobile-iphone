@@ -19,7 +19,7 @@ NSString *const SongLoadedNotification = @"SongLoadedNotification";
 
 @implementation Song
 
-@synthesize url, info, trackid, artist, title, needsNotification, origserv, alreadyLoaded;
+@synthesize url, downloadurl, localPath, info, trackid, artist, title, needsNotification, origserv, alreadyLoaded;
 
 -(id)initWithURL:(NSURL*)trackurl withArtist:(NSString*) art withTitle:(NSString*) tit{
 	if (self = [super init]) {
@@ -50,9 +50,9 @@ NSString *const SongLoadedNotification = @"SongLoadedNotification";
 		}
 	}
 	self.trackid = track_id;
-	NSString *jzpath = [NSString stringWithFormat:@"%@&request=trackinfo&jz_path=%@&type=json&track_fields=metadata,name,album,artist,image",origserv, track_id];
+	NSString *jzpath = [NSString stringWithFormat:@"%@&request=trackinfo&jz_path=%@&type=json",origserv, track_id];
 	NSLog(jzpath);
-	
+    
 	NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:jzpath]];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
 	NSDictionary *browselist = (NSDictionary *)[jsonParser objectWithString:jsonString error:NULL];
@@ -62,7 +62,7 @@ NSString *const SongLoadedNotification = @"SongLoadedNotification";
 		NSArray *toparse = [browselist objectForKey:[browsekeys objectAtIndex:k]];
 		for (i=0;i<[toparse count];i++){
 			NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[toparse objectAtIndex:i]];
-			NSDictionary *metadict = [dict objectForKey:@"metadata"];
+            NSDictionary *metadict = [dict objectForKey:@"metadata"];
 			[dict addEntriesFromDictionary:metadict];
 			[dict removeObjectForKey:@"metadata"];
 			[dict setObject:@"Song" forKey:@"type"];
@@ -84,12 +84,23 @@ NSString *const SongLoadedNotification = @"SongLoadedNotification";
 	}
 	alreadyLoaded = YES;
 	[pool release];
+    NSString *encodedpath = [self.info objectForKey:@"path"];
+    encodedpath =
+	[(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)encodedpath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
+    NSString *serv = [origserv stringByReplacingOccurrencesOfString:@"api.php" withString:@"index.php"];
+    self.downloadurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@&action=download&jz_path=%@&type=track&ext.m3u", serv, encodedpath]];
+    NSLog([self.downloadurl absoluteString]);
 }
 
 
 -(NSString *)getAlbum {
 	if(!info) return @"";
 	return [info objectForKey:@"album"];
+}
+
+-(NSString *)getLocalPath {
+	if(!self.localPath) return @"";
+	return self.localPath;
 }
 
 -(NSString *)getAlbumArt {

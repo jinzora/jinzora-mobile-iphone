@@ -13,6 +13,7 @@
 	NSMutableDictionary *info;
 	NSMutableArray *servers;
 	NSMutableArray *friends;
+    BOOL random;
 }
 
 -(void) modifyServerAtIndex:(int)servIndex named:(NSString *) name username:(NSString *)user password:(NSString *)pass server:(NSString *)serv;
@@ -42,4 +43,5 @@
 @property (nonatomic, retain) NSMutableDictionary *info;
 @property (nonatomic, retain) NSMutableArray *servers;
 @property (nonatomic, retain) NSMutableArray *friends;
+@property BOOL random;
 @end

@@ -51,8 +51,8 @@
 	[myTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
 	[myTextField setBackgroundColor:[UIColor whiteColor]];
 	[myAlertView addSubview:myTextField];
-	CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
-	[myAlertView setTransform:myTransform];
+	//CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
+	//[myAlertView setTransform:myTransform];
 	[myAlertView show];
 	[myAlertView release];
 }

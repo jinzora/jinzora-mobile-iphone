@@ -11,7 +11,7 @@
 
 @implementation Preferences
 
-@synthesize info, servers, friends;
+@synthesize info, servers, friends, random;
 
 - (void) dealloc {
 	[servers release];
@@ -35,7 +35,6 @@
 		self.info = [NSMutableDictionary dictionaryWithContentsOfFile:pref_file];
 		if (info == nil) self.info = [NSMutableDictionary dictionary];
 		if([self.info objectForKey:@"currfile"] == nil) [self.info setObject:@"" forKey:@"currfile"];
-		
 		pref_file = [documentsDirectory stringByAppendingPathComponent:@"servers.dat"];
 		self.servers = [NSMutableArray arrayWithContentsOfFile:pref_file];
 		if (servers == nil) self.servers = [NSMutableArray array];
@@ -43,6 +42,7 @@
 		pref_file = [documentsDirectory stringByAppendingPathComponent:@"friends.dat"];
 		self.friends = [NSMutableArray arrayWithContentsOfFile:pref_file];
 		if (friends == nil) self.friends = [NSMutableArray array];
+        self.random = FALSE;
 	}
 	
 	return self;
@@ -63,6 +63,14 @@
 -(void) addServerNamed:(NSString *)name username:(NSString *)user password:(NSString *)pass server:(NSString*)serv{
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	[dict setObject:name forKey:@"name"];
+    if ([serv hasSuffix:@"index.php"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"index.php" length]) ];
+    }
+    if ([serv hasSuffix:@"/"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"/" length])];
+    }
 	[dict setObject:serv forKey:@"serv"];
 	[dict setObject:pass forKey:@"pass"];
 	[dict setObject:user forKey:@"user"];
@@ -79,7 +87,7 @@
 	unsigned char result[CC_MD5_DIGEST_LENGTH];
 	CC_MD5(cStr, strlen(cStr), result);
 	NSString *md5 = [NSString stringWithFormat: @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
-	return [NSString stringWithFormat:@"%@api.php?user=%@&pass=%@&pw_hashed=true", [dict objectForKey:@"serv"], [dict objectForKey:@"user"], md5];
+	return [NSString stringWithFormat:@"%@/api.php?user=%@&pass=%@&pw_hashed=true", [dict objectForKey:@"serv"], [dict objectForKey:@"user"], md5];
 }
 
 -(void) exchangeFriendAtIndex:(int) indexFrom withIndex:(int)indexTo{
@@ -126,9 +134,17 @@
 -(void) modifyServerAtIndex:(int)servIndex named:(NSString *) name username:(NSString *)user password:(NSString *)pass server:(NSString *)serv{
 	NSMutableDictionary *dict = [servers objectAtIndex:servIndex];
 	[dict setObject:name forKey:@"name"];
+    if ([serv hasSuffix:@"index.php"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"index.php" length]) ];
+    }
+    if ([serv hasSuffix:@"/"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"/" length])];
+    }
 	[dict setObject:serv forKey:@"serv"];
 	[dict setObject:pass forKey:@"pass"];
-	[dict setObject:user forKey:@"user"];	
+	[dict setObject:user forKey:@"user"];
 }
 
 -(int) getNumServers{

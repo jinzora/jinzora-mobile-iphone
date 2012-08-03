@@ -1,16 +1,14 @@
 //
 //  NSString+XMLExtensions.h
-//  WordPress
+//  JinzoraMobile
 //
-//  Created by Janakiram on 26/08/08.
+//  Created by Ryan Wilson on 7/7/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#ifndef JinzoraMobile_NSString_XMLExtensions_h
+#define JinzoraMobile_NSString_XMLExtensions_h
 
 
-@interface NSString(XMLExtensions) 
 
-+ (NSString *)encodeXMLCharactersIn:(NSString *)source;
-+ (NSString *) decodeXMLCharactersIn:(NSString *)source;
-
-@end
+#endif

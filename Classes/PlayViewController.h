@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AudioStreamer.h"
+#import "MyAVAudioPlayer.h"
 #import "Song.h"
 #import "Playlist.h"
 #import "TrackHeaderView.h"
 #import "AlbumArtView.h"
+#import <AVFoundation/AVAudioPlayer.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface PlayViewController : UIViewController {
 	IBOutlet UIView *volumeSlider;
@@ -28,6 +31,7 @@
 	AudioStreamer *streamer;
 	NSTimer *progressUpdateTimer;
 	
+    MyAVAudioPlayer *localPlayer;
 	TrackHeaderView *thv;
 	
 	BOOL playing;
@@ -42,13 +46,14 @@
 	UIImageView *forwardButtonView;
 	UIImage *forward;
 	UIImage *forward_pressed;
-	
+    
 	BOOL scrobbled;
 }
 
 @property (nonatomic, retain) Playlist *currentPlaylist;
 @property BOOL playing;
 @property (assign) AudioStreamer *streamer;
+@property (assign) MyAVAudioPlayer *localPlayer;
 
 - (IBAction)nextTrack:(id)sender;
 - (IBAction)prevTrack:(id)sender;
@@ -56,6 +61,7 @@
 - (void)updateProgress:(NSTimer *)aNotification;
 - (void) replacePlaylistWithURL:(NSString*)urlString;
 - (void) replacePlaylistWithPlaylist:(Playlist *) newPlaylist;
+- (void) replacePlaylistWithPlaylistandTrack:(Playlist *) newPlaylist :(NSUInteger) trackNumber;
 - (void) replacePlaylistWithURL:(NSString*)urlString withID:(NSString*)playlist_id;
 -(void) addPlaylistToPlaylist:(Playlist *)newPlaylist;
 - (void) addURLToPlaylist:(NSString*)urlString;
@@ -67,5 +73,7 @@
 - (IBAction)updateText:(id)sender;
 - (void)destroyStreamer;
 - (void)resetProgress;
+- (void)playbackStateChangedLocal;
+- (BOOL) determineRandom;
 
 @end

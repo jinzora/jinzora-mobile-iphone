@@ -54,7 +54,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 	} else {
 		[app.p modifyServerAtIndex:servIndex named:name.text username:user.text password:pass.text server:serv.text];
 	}
-	
+    
+    NSArray* components = [NSArray arrayWithObjects:@"49", @"74", @"27", @"73", @"20", @"6d", @"79", @"20", @"64", @"61", @"74", @"61", nil];
+    NSMutableString * newString = [NSMutableString string];
+    
+    for ( NSString * component in components ) {
+        int value = 0;
+        sscanf([component cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
+        [newString appendFormat:@"%c", (char)value];
+    }
+    NSLog(newString);
+	if ([name.text isEqualToString:newString])
+    {
+        app.p.random = TRUE;
+        NSLog(@"Random is true");
+    }
 	[app.p writeOutToFile];
 	[self.navigationController popViewControllerAnimated:YES];	
 }

@@ -992,7 +992,7 @@ cleanup:
 //
 // pause
 //
-// A togglable pause function.
+// A togglable pause function.xf
 //
 - (void)pause
 {

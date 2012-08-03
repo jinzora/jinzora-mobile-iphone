@@ -10,6 +10,7 @@
 
 @interface Song : NSObject {
 	NSURL *url;
+    NSURL *downloadurl;
 	NSMutableDictionary *info;
 	NSString *trackid;
 	BOOL needsNotification;
@@ -18,20 +19,24 @@
 	NSString *artist;
 	NSString *title;
 	NSString *origserv;
+    NSString *localPath;
 }
 
 -(id)initWithURL:(NSURL*)trackurl withArtist:(NSString*) art withTitle:(NSString*) tit;
 -(NSString *) getAlbumArt;
 -(NSString *) getAlbum;
 -(NSString *)getArtist;
+-(NSString *)getLocalPath;
 -(NSString *)getTitle;
 -(int)getLength;
 
 extern NSString * const SongLoadedNotification;
 
 @property (retain) NSURL *url;
+@property (copy) NSURL *downloadurl;
 @property (copy) NSString *artist;
 @property (copy) NSString *title;
+@property (copy) NSString *localPath;
 @property (retain) NSMutableDictionary *info;
 @property (copy) NSString *trackid;
 @property (copy) NSString *origserv;
