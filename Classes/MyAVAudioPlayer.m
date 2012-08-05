@@ -29,6 +29,10 @@
     return self;
 }
 
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player {
+    NSLog(@"Interrupted!");
+}
+
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     NSLog(@"Local song finished playing");
@@ -38,16 +42,16 @@
 
 - (BOOL)play
 {
-    return [player play];
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
     app.pvc.playing = YES;
+    return [player play];
 }
 
 - (void)stop
 {
     [player stop];
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
-    app.pvc.playing = YES;
+    app.pvc.playing = NO;
 }
 
 - (void)pause

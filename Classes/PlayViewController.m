@@ -61,9 +61,9 @@
 		[newPlaylist release];
 		
         
-        UIBarButtonItem *temporaryDownloadButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Download" style:UIBarButtonItemStylePlain target:self action:@selector(downloadSong)];
-        self.navigationItem.leftBarButtonItem = temporaryDownloadButtonItem;
-        [temporaryDownloadButtonItem release];
+        //UIBarButtonItem *temporaryDownloadButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Download" style:UIBarButtonItemStylePlain target:self action:@selector(downloadSong)];
+        //self.navigationItem.leftBarButtonItem = temporaryDownloadButtonItem;
+        //[temporaryDownloadButtonItem release];
         
 		UIBarButtonItem *temporayPlaylistButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"playlist_bar_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showPlaylist)];
 		self.navigationItem.rightBarButtonItem = temporayPlaylistButtonItem;
@@ -222,6 +222,19 @@
 	[albumArt setNeedsDisplay];
 	[thv setNeedsDisplay];
 	[self updateProgress:nil];
+    if (currentSong.info && currentSong.origserv)
+    {
+        NSString *encodedpath = [currentSong.info objectForKey:@"path"];
+        encodedpath =
+        [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)encodedpath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
+        NSString *serv = [currentSong.origserv stringByReplacingOccurrencesOfString:@"api.php" withString:@"index.php"];
+        currentSong.downloadurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@&action=download&jz_path=%@&type=track&ext.m3u", serv, encodedpath]];
+        NSLog([currentSong.downloadurl absoluteString]);
+    }
+    if (currentSong.downloadurl)
+    {
+        [self downloadSong];
+    }
 }
 
 - (BOOL) determineRandom
@@ -245,51 +258,42 @@
     return TRUE;
 }
 
-- (IBAction) downloadSong
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if ([self determineRandom] == FALSE)
-    {
-        return;
-    }
-    NSLog(@"downloading song");
-    NSLog([currentSong.downloadurl absoluteString]);
-    UIAlertView *result;
-    Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
-    // Check for song in playlist
-    for (NSUInteger i = 0; i < [downloadPlaylist songCount]; i++)
-    {
-        Song *playlistSong = [downloadPlaylist getSongAtIndex:i];
-        if (([currentSong.artist isEqualToString:playlistSong.artist] && [currentSong.title isEqualToString:playlistSong.artist]) || [currentSong localPath])
-        {
-            result = [[UIAlertView alloc] initWithTitle: @"Song Not Downloaded" message: @"Song is already in downloads playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-            [result show];
-            [result release];
-            return;
-        }
-    }
-    // Download song
-    NSData *musicData = [[NSData alloc] initWithContentsOfURL:currentSong.downloadurl];
-    if (!musicData)
-    {
-        result = [[UIAlertView alloc] initWithTitle: @"Download Error" message: @"Error downloading file" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [result show];
-        [result release];
-        return;
-    }
+    UIAlertView *result = [[UIAlertView alloc] initWithTitle: @"Download Error" message: @"Error downloading file" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [result show];
+    [result release];
+    return;
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse*)response
+{
+    urlData = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData*)incrementalData
+{
+    [urlData appendData:incrementalData];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection*)connection
+{
     // Save file
+    UIAlertView *result;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *fileName =
 	[(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)[NSString stringWithFormat:@"%@_%@.mp3", currentSong.artist, currentSong.title], NULL, NULL, kCFStringEncodingUTF8) autorelease];
 	
     NSString *songPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
-    BOOL write =[musicData writeToFile:songPath atomically:YES];
+    BOOL write =[urlData writeToFile:songPath atomically:YES];
     if (write == TRUE)
     {
         NSLog([NSString stringWithFormat:@"Write of file %@ successful", songPath]);
-        result = [[UIAlertView alloc] initWithTitle: @"Song Downloaded" message: @"Added to the downloaded songs playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        //result = [[UIAlertView alloc] initWithTitle: @"Song Downloaded" message: @"Added to the downloaded songs playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         NSLog(@"Song initialized!");
         NSLog(@"Playlist read!");
         // Add to playlist
+        Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
         [downloadPlaylist addSong:currentSong atIndex:[downloadPlaylist songCount]];
         [downloadPlaylist printSongs];
         [downloadPlaylist writeOutToFile];
@@ -297,10 +301,53 @@
     }
     else {
         NSLog([NSString stringWithFormat:@"Write of file %@ failed", songPath]);
-        result = [[UIAlertView alloc] initWithTitle: @"File Error" message: @"Error saving file" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        result = [[UIAlertView alloc] initWithTitle: @"Error Saving File" message: @"Try deleting files from your downloads playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [result show];
+        [result release];
     }
-    [result show];
-    [result release];
+    [urlData release];
+}
+
+- (IBAction) downloadSong
+{
+    if ([self determineRandom] == FALSE)
+    {
+        return;
+    }
+    NSLog(@"downloading song");
+    if ([self songInDownloads])
+    {
+        //UIAlertView *result = [[UIAlertView alloc] initWithTitle: @"Song Not Downloaded" message: @"Song is already in downloads playlist" delegate: self    cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        //[result show];
+        //[result release];
+        return;
+    }
+    // Download song
+    NSURLRequest *req = [NSURLRequest requestWithURL:currentSong.downloadurl];
+    [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
+}
+
+
+-(BOOL) songInDownloads
+{
+    if ([currentSong localPath])
+    {
+        return TRUE;
+    }
+    Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
+    // Check for song in playlist
+    for (NSUInteger i = 0; i < [downloadPlaylist songCount]; i++)
+    {
+        Song *playlistSong = [downloadPlaylist getSongAtIndex:i];
+        if ([currentSong.artist isEqualToString:playlistSong.artist] && [currentSong.title isEqualToString:playlistSong.title])
+        {
+            currentSong.localPath = playlistSong.localPath;
+            [downloadPlaylist release];
+            return TRUE;
+        }
+    }
+    [downloadPlaylist release];
+    return FALSE;
 }
 
 //
@@ -314,8 +361,9 @@
 	
 	[self destroyStreamer];
     
-    if ([currentSong localPath])
+    if ([self songInDownloads])
     {
+        NSLog(@"Playing song locally");
         NSURL *localUrl = [NSURL fileURLWithPath:currentSong.localPath];
         NSError *error;
         localPlayer = [[MyAVAudioPlayer alloc] initWithContentsOfURL:localUrl error:&error];
@@ -389,7 +437,7 @@
     } else {
         [self nextTrack:self];
     }
-    playing = NO;
+    playing = YES;
 }
 
 - (void)playbackStateChanged:(NSNotification *)aNotification
@@ -522,7 +570,7 @@
 	currentPlaylist.currentIndex = index;
 	NSLog(@"hitting");
 	[self copyCurrentSong];
-	
+    
 	NSLog(@"New song number %d %@ by %@", index, [currentSong getTitle], [currentSong getArtist]);
 	scrobbled = NO;
 	[albumArt setNeedsDisplay];
@@ -561,18 +609,36 @@
 
 - (IBAction)nextTrack:(id)sender{
 	NSLog(@"Skipping to next track");
+    BOOL local;
+    if (localPlayer)
+    {
+        local = YES;
+    }
+    else
+    {
+        local = NO;
+    } 
 	[self changeTrack:((currentPlaylist.currentIndex + 1) % [currentPlaylist songCount])];
 	[self destroyStreamer];
 	[self resetProgress];
-	if(playing)[self playSong];
+	if(playing || local)[self playSong];
 }
 
 - (IBAction)prevTrack:(id)sender{
 	NSLog(@"Going back to previous track");
+    BOOL local;
+    if (localPlayer)
+    {
+        local = YES;
+    }
+    else
+    {
+        local = NO;
+    }
 	[self changeTrack:((currentPlaylist.currentIndex - 1 + [currentPlaylist songCount]) % [currentPlaylist songCount])];
 	[self destroyStreamer];
 	[self resetProgress];
-	if(playing)[self playSong];
+	if(playing || local)[self playSong];
 }
 
 - (IBAction)playPressed:(id)sender

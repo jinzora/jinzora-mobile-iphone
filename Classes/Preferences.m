@@ -71,6 +71,10 @@
     {
         serv = [serv substringToIndex:([serv length] - [@"/" length])];
     }
+    if ( !([serv hasPrefix:@"http://"] || [serv hasPrefix:@"https://"]) )
+    {
+        serv = [NSString stringWithFormat:@"http://%@", serv];
+    }
 	[dict setObject:serv forKey:@"serv"];
 	[dict setObject:pass forKey:@"pass"];
 	[dict setObject:user forKey:@"user"];
@@ -141,6 +145,10 @@
     if ([serv hasSuffix:@"/"])
     {
         serv = [serv substringToIndex:([serv length] - [@"/" length])];
+    }
+    if ( !([serv hasPrefix:@"http://"] || [serv hasPrefix:@"https://"]) )
+    {
+        serv = [NSString stringWithFormat:@"http://%@", serv];
     }
 	[dict setObject:serv forKey:@"serv"];
 	[dict setObject:pass forKey:@"pass"];

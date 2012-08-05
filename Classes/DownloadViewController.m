@@ -118,9 +118,11 @@
             [result release];
             return;
         }
-        NSString* localPath = [downloadPlaylist getSongAtIndex:indexPath.row].localPath;
+        Song *deletedSong = [downloadPlaylist getSongAtIndex:indexPath.row];
+        NSString* localPath = deletedSong.localPath;
 		[downloadPlaylist removeSongAtIndex:indexPath.row];
         [downloadPlaylist writeOutToFile];
+        // Delete song
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSError *error;
         BOOL fileExists = [fileManager fileExistsAtPath:localPath];
@@ -133,6 +135,19 @@
             if (!success) NSLog(@"Error: %@", [error localizedDescription]);
         }
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        // Delete image
+        NSString *localImagePath = [deletedSong getAlbumArt];
+        fileExists = [fileManager fileExistsAtPath:localImagePath];
+        NSLog(@"Path to file: %@", localImagePath);        
+        NSLog(@"File exists: %d", fileExists);
+        NSLog(@"Is deletable file at path: %d", [fileManager isDeletableFileAtPath:localImagePath]);
+        if (fileExists) 
+        {
+            BOOL success = [fileManager removeItemAtPath:localImagePath error:&error];
+            if (!success) NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        
+        [tableView endUpdates];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
