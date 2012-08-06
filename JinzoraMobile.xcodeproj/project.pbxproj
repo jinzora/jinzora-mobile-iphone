@@ -641,6 +641,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JinzoraMobile_Prefix.pch;
 				INFOPLIST_FILE = "JinzoraMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = JinzoraMobile;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
@@ -657,6 +658,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JinzoraMobile_Prefix.pch;
 				INFOPLIST_FILE = "JinzoraMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = JinzoraMobile;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
@@ -666,13 +668,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Purtell";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JinzoraMobile_Prefix.pch;
 				INFOPLIST_FILE = "JinzoraMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = JinzoraMobile;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "528CC647-DB9D-4D44-9B2A-0C990D26F396";
 			};
 			name = Release;
 		};
