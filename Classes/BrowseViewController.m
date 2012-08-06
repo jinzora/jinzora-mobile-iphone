@@ -432,7 +432,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	file = [NSString stringWithFormat:@"%@&type=json&request=home",file];
 	
-	NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:file]];
+	NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:file] encoding:NSASCIIStringEncoding error:nil];
 	SBJSON *jsonParser = [[SBJSON alloc]init];
 	NSArray *browselist = (NSArray *)[jsonParser objectWithString:jsonString error:NULL];
 	[jsonParser release];
@@ -458,16 +458,20 @@ static int compareTracks(id t1, id t2, void *context)
 	NSString *file = [baseInfo objectForKey:@"browse"];
 	NSString *type = [[baseInfo objectForKey:@"type"] lowercaseString];
 	file = [NSString stringWithFormat:@"%@&type=json&node_fields=name,type,album,artist,thumbnail,playlink,browse&track_fields=name,album,metadata,artist,playlink,type",file];
-	
+    
 	NSLog(file);
 	
-	NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:file]];
+	NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:file] encoding:NSASCIIStringEncoding error:nil];
 	SBJSON *jsonParser = [[SBJSON alloc] init];
 	NSDictionary *browselist = (NSDictionary *)[jsonParser objectWithString:jsonString error:NULL];
 	[jsonParser release];
 	NSArray *browsekeys = [browselist allKeys];
 	for(NSString *section in browsekeys){
 		NSArray *toparse = [browselist objectForKey:section];
+        if (![toparse isKindOfClass:[NSArray class]])
+        {
+            continue;
+        }
 		for (NSDictionary *infodict in toparse){
 			if(queueDone) return;
 			NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:infodict];

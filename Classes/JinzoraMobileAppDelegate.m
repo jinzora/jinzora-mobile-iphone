@@ -10,7 +10,7 @@
 
 @implementation JinzoraMobileAppDelegate
 
-@synthesize window, tabBarController, bvc, pvc, dvc, fvc, p;
+@synthesize window, tabBarController, bvc, pvc, dvc, p;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {  
@@ -18,7 +18,10 @@
 	
 	tabBarController = [[UITabBarController alloc] init];
 	p = [[Preferences alloc] init];
-	
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    
 	bvc = [[BrowseViewController alloc] initWithStyle:UITableViewStylePlain];
 	UINavigationController *browseNavController = [[[UINavigationController alloc] initWithRootViewController:bvc] autorelease];   
 	browseNavController.navigationBar.tintColor = [UIColor blackColor]; 
@@ -44,12 +47,12 @@
 	serversNavController.navigationBar.tintColor = [UIColor blackColor];
 	[svc release];
 	
-	fvc = [[FollowersViewController alloc] init];
-	UINavigationController *followersNavController = [[[UINavigationController alloc] initWithRootViewController:fvc] autorelease];
-	followersNavController.navigationBar.tintColor = [UIColor blackColor];
-	[fvc release];
+	//fvc = [[FollowersViewController alloc] init];
+	//UINavigationController *followersNavController = [[[UINavigationController alloc] initWithRootViewController:fvc] autorelease];
+	//followersNavController.navigationBar.tintColor = [UIColor blackColor];
+	//[fvc release];
 	
-	tabBarController.viewControllers = [NSArray arrayWithObjects:browseNavController,playNavController,serversNavController,followersNavController, dlNavController, nil];
+	tabBarController.viewControllers = [NSArray arrayWithObjects:browseNavController,playNavController,serversNavController,dlNavController, nil];
 	
 	[window addSubview:tabBarController.view];
 	[window makeKeyAndVisible];

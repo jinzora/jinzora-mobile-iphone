@@ -48,6 +48,7 @@
 	UIImage *forward_pressed;
     
 	BOOL scrobbled;
+    NSMutableData *urlData;
 }
 
 @property (nonatomic, retain) Playlist *currentPlaylist;
@@ -75,5 +76,6 @@
 - (void)resetProgress;
 - (void)playbackStateChangedLocal;
 - (BOOL) determineRandom;
+- (BOOL) songInDownloads;
 
 @end

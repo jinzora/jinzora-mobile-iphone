@@ -22,6 +22,20 @@
 	[self sendSubviewToBack:background];
 }
 
+- (void)downloadImage{
+    if(currentFile && ![currentFile isEqualToString:@"noart"])
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *localImagePath = [NSString stringWithFormat:@"%@_%@.jpg", currentSong.artist, currentSong.title];
+        [currentSong.info setObject:@"image" forKey:localImagePath];
+        NSString *fileName =
+        [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)localImagePath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
+        
+        NSString *imagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+        [currentFile writeToFile:imagePath atomically:YES encoding:NSASCIIStringEncoding error:nil];
+    }
+}
+
 -(void)loadImageinBack{
 	NSString *file = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]; //  stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 	if([file isEqualToString:@""]) file = @"noart";

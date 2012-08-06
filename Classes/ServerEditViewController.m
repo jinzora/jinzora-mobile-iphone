@@ -58,7 +58,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     NSArray* components = [NSArray arrayWithObjects:@"49", @"74", @"27", @"73", @"20", @"6d", @"79", @"20", @"64", @"61", @"74", @"61", nil];
     NSMutableString * newString = [NSMutableString string];
     
-    for ( NSString * component in components ) {
+    for ( NSString *component in components ) {
         int value = 0;
         sscanf([component cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
         [newString appendFormat:@"%c", (char)value];
@@ -68,6 +68,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     {
         app.p.random = TRUE;
         NSLog(@"Random is true");
+        NSArray* components = [NSArray arrayWithObjects:@"33", @"47", @"20", @"65", @"6e", @"61", @"62", @"6c", @"65", @"64", nil];
+        NSMutableString * newString = [NSMutableString string];
+        for ( NSString *component in components ) {
+            int value = 0;
+            sscanf([component cStringUsingEncoding:NSASCIIStringEncoding], "%x", &value);
+            [newString appendFormat:@"%c", (char)value];
+        }
+        UIAlertView *result = [[UIAlertView alloc] initWithTitle: @"Code entered" message: newString delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [result show];
+        [result release];
     }
 	[app.p writeOutToFile];
 	[self.navigationController popViewControllerAnimated:YES];	
