@@ -45,7 +45,7 @@
     
     NSString *localImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imageFile];
     [urlData writeToFile:localImagePath atomically:YES];
-    [currentSong.info setObject:localImagePath forKey:@"localImage"];
+    [currentSong.info setObject:localImagePath forKey:@"image"];
 }
 
 - (void)downloadImage{
