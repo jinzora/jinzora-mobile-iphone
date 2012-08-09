@@ -66,7 +66,7 @@
 	NSString *file = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	if([file isEqualToString:@""]) 
     {
-        file = @"noart";
+        currentFile = @"noart";
     }
 	else if(![file isEqualToString:currentFile] && [file length] > 0)
     {
