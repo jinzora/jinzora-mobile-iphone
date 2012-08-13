@@ -229,7 +229,7 @@
         [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)encodedpath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
         NSString *serv = [currentSong.origserv stringByReplacingOccurrencesOfString:@"api.php" withString:@"index.php"];
         currentSong.downloadurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@&action=download&jz_path=%@&type=track&ext.m3u", serv, encodedpath]];
-        NSLog([currentSong.downloadurl absoluteString]);
+        //NSLog([currentSong.downloadurl absoluteString]);
     }
     if (currentSong.downloadurl)
     {
@@ -371,7 +371,6 @@
 	[(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)[currentSong.url absoluteString], NULL, NULL, kCFStringEncodingUTF8) autorelease];
 	
 	NSURL *url = [NSURL URLWithString:escapedValue];
-	NSLog([url absoluteString]);
 	streamer = [[AudioStreamer alloc] initWithURL:url];
         
 	progressUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateProgress:) userInfo:nil repeats:YES];
@@ -560,7 +559,6 @@
 
 - (void)changeTrack:(int) index {
 	currentPlaylist.currentIndex = index;
-	NSLog(@"hitting");
 	[self copyCurrentSong];
     
 	NSLog(@"New song number %d %@ by %@", index, [currentSong getTitle], [currentSong getArtist]);
