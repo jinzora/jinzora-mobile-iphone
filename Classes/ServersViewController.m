@@ -43,7 +43,11 @@
 			[app.p addServerNamed:@"Enter server info here" username:@"" password:@"" server:@"http://live.jinzora.org/"];
 			[app.p setCurrURLtoServAtIndex:0];
 		}
-        
+        NSUInteger selected_serv = [[NSUserDefaults standardUserDefaults] integerForKey:@"server"];
+        if (selected_serv)
+        {
+            [app.p setCurrURLtoServAtIndex:selected_serv];
+        }
         NSArray* components = [NSArray arrayWithObjects:@"49", @"74", @"27", @"73", @"20", @"6d", @"79", @"20", @"64", @"61", @"74", @"61", nil];
         NSMutableString * newString = [NSMutableString string];
         
@@ -174,6 +178,7 @@
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSString *before = [[NSString alloc] initWithString:[app.p getCurrentApiURL]];
 	[app.p setCurrURLtoServAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:@"server"];
 	NSString *after = [app.p getCurrentApiURL];
 	if(![before isEqualToString:after]) [app resetBrowse];
     [before release];
