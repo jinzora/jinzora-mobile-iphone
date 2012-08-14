@@ -40,7 +40,7 @@
         JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
 		if(!isfirst) {
 			[prefs setObject:@"yes" forKey:@"isfirst"];
-			[app.p addServerNamed:@"Archives.org" username:@"" password:@"" server:@"http://live.jinzora.org/"];
+			[app.p addServerNamed:@"Enter server info here" username:@"" password:@"" server:@"http://live.jinzora.org/"];
 			[app.p setCurrURLtoServAtIndex:0];
 		}
         

@@ -85,12 +85,14 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     UILabel *lbl1 = cell.textLabel;
+    UILabel *lbl2 = cell.detailTextLabel;
     //UILabel *lbl2 = cell.detailTextLabel;
     
-    lbl1.text = [NSString stringWithFormat:@"%@ - %@", [selectedSong getTitle],[selectedSong getArtist]];
+    lbl1.text = [selectedSong getTitle];
+    lbl2.text = [selectedSong getArtist];
     NSLog(lbl1.text);
     [downloadPlaylist printSongs];
     return cell;

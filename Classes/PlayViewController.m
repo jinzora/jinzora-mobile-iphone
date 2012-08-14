@@ -229,7 +229,7 @@
         [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)encodedpath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
         NSString *serv = [currentSong.origserv stringByReplacingOccurrencesOfString:@"api.php" withString:@"index.php"];
         currentSong.downloadurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@&action=download&jz_path=%@&type=track&ext.m3u", serv, encodedpath]];
-        NSLog([currentSong.downloadurl absoluteString]);
+        //NSLog([currentSong.downloadurl absoluteString]);
     }
     if (currentSong.downloadurl)
     {
@@ -240,20 +240,21 @@
 - (BOOL) determineRandom
 {
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (app.p.random == FALSE)
+    
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    if (app.p.random == FALSE && status != ReachableViaWiFi)
+    {        
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle: @"No Wifi Connection" message: @"Jinzora does not support 3G" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [error show];
+        [error release];
+        return FALSE;
+    }
+    if (status == NotReachable)
     {
-        Reachability *reachability = [Reachability reachabilityForInternetConnection];
-        [reachability startNotifier];
-        
-        NetworkStatus status = [reachability currentReachabilityStatus];
-        
-        if (status != ReachableViaWiFi) 
-        {
-            UIAlertView *error = [[UIAlertView alloc] initWithTitle: @"No Wifi Connection" message: @"Jinzora does not support 3G" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-            [error show];
-            [error release];
-            return FALSE;
-        }
+        return FALSE;
     }
     return TRUE;
 }
@@ -289,11 +290,10 @@
     if (write == TRUE)
     {
         NSLog([NSString stringWithFormat:@"Write of file %@ successful", songPath]);
-        //result = [[UIAlertView alloc] initWithTitle: @"Song Downloaded" message: @"Added to the downloaded songs playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         NSLog(@"Song initialized!");
-        NSLog(@"Playlist read!");
         // Add to playlist
         Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
+        NSLog(@"Playlist read!");
         [downloadPlaylist addSong:currentSong atIndex:[downloadPlaylist songCount]];
         [downloadPlaylist printSongs];
         [downloadPlaylist writeOutToFile];
@@ -310,16 +310,8 @@
 
 - (IBAction) downloadSong
 {
-    if ([self determineRandom] == FALSE)
+    if ([self determineRandom] == FALSE || [self songInDownloads])
     {
-        return;
-    }
-    NSLog(@"downloading song");
-    if ([self songInDownloads])
-    {
-        //UIAlertView *result = [[UIAlertView alloc] initWithTitle: @"Song Not Downloaded" message: @"Song is already in downloads playlist" delegate: self    cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        //[result show];
-        //[result release];
         return;
     }
     // Download song
@@ -379,7 +371,6 @@
 	[(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)[currentSong.url absoluteString], NULL, NULL, kCFStringEncodingUTF8) autorelease];
 	
 	NSURL *url = [NSURL URLWithString:escapedValue];
-	NSLog([url absoluteString]);
 	streamer = [[AudioStreamer alloc] initWithURL:url];
         
 	progressUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateProgress:) userInfo:nil repeats:YES];
@@ -568,7 +559,6 @@
 
 - (void)changeTrack:(int) index {
 	currentPlaylist.currentIndex = index;
-	NSLog(@"hitting");
 	[self copyCurrentSong];
     
 	NSLog(@"New song number %d %@ by %@", index, [currentSong getTitle], [currentSong getArtist]);

@@ -14,8 +14,10 @@
 	UIImageView *background;
 	UIImage *currentImage;
 	NSString *currentFile;
+    NSMutableData *urlData;
 }
 
 -(void)loadImageinBack;
+-(void)downloadImage;
 
 @end

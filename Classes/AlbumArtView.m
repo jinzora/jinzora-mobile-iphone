@@ -7,7 +7,7 @@
 //
 
 #import "AlbumArtView.h"
-
+#import "JinzoraMobileAppDelegate.h"
 
 @implementation AlbumArtView
 
@@ -22,30 +22,60 @@
 	[self sendSubviewToBack:background];
 }
 
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"Error downloading background image");
+    return;
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse*)response
+{
+    urlData = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData*)incrementalData
+{
+    [urlData appendData:incrementalData];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection*)connection
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *imageFile = [NSString stringWithFormat:@"%@_%@.jpg", currentSong.artist, currentSong.title];
+    
+    NSString *localImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imageFile];
+    [urlData writeToFile:localImagePath atomically:YES];
+    [currentSong.info setObject:localImagePath forKey:@"image"];
+}
+
 - (void)downloadImage{
-    if(currentFile && ![currentFile isEqualToString:@"noart"])
+    NSString *albumArtPath = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL fileExists = [fileManager fileExistsAtPath:albumArtPath];
+    JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *) [[UIApplication sharedApplication] delegate];
+    if (fileExists || [albumArtPath isEqualToString:@""] || !currentSong.artist || !currentSong.title || [app.pvc determineRandom] == FALSE)
     {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *localImagePath = [NSString stringWithFormat:@"%@_%@.jpg", currentSong.artist, currentSong.title];
-        [currentSong.info setObject:@"image" forKey:localImagePath];
-        NSString *fileName =
-        [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)localImagePath, NULL, NULL, kCFStringEncodingUTF8) autorelease];
-        
-        NSString *imagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
-        [currentFile writeToFile:imagePath atomically:YES encoding:NSASCIIStringEncoding error:nil];
+        return;
     }
+    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:albumArtPath]];
+    [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
 }
 
 -(void)loadImageinBack{
-	NSString *file = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]; //  stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-	if([file isEqualToString:@""]) file = @"noart";
-	if(![file isEqualToString:currentFile] && [file length] > 0){
+    [self downloadImage];
+	NSString *file = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	if([file isEqualToString:@""]) 
+    {
+        currentFile = @"noart";
+    }
+	else if(![file isEqualToString:currentFile] && [file length] > 0)
+    {
 		NSLog(@"Loading new album art: %@", file);
 		[currentFile release];
-		currentFile = [file retain];
-		[background setImage:nil];
-		[self performSelectorInBackground:@selector(loadImage) withObject:nil];
+        currentFile = [file retain];
 	}
+    [background setImage:nil];
+    [self performSelectorInBackground:@selector(loadImage) withObject:nil];
 }
 
 - (void)changeImage {
@@ -55,9 +85,20 @@
 - (void)loadImage {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[currentImage release];
-	
-	if([currentFile isEqualToString:@"noart"]) currentImage = [[UIImage imageNamed:@"defaultaa.jpg"] retain];
-	else currentImage = [[UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString: currentFile]]] retain];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL fileExists = [fileManager fileExistsAtPath:currentFile];
+	if([currentFile isEqualToString:@"noart"])
+    {
+        currentImage = [[UIImage imageNamed:@"defaultaa.jpg"] retain];
+    }
+	else if (fileExists)
+    {
+        currentImage = [[UIImage imageWithData: [NSData dataWithContentsOfFile:currentFile]] retain];
+    }
+    else
+    {
+        currentImage = [[UIImage imageWithData: [NSData dataWithContentsOfURL: [NSURL URLWithString: currentFile]]] retain];
+    }
 	[self performSelectorOnMainThread:@selector(changeImage) withObject:nil waitUntilDone:NO];
 	[pool release];
 }
