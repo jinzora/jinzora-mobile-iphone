@@ -48,6 +48,10 @@
         {
             [app.p setCurrURLtoServAtIndex:selected_serv];
         }
+        else if ([app.p getNumServers] > 0)
+        {
+            [app.p setCurrURLtoServAtIndex:0];
+        }
         NSArray* components = [NSArray arrayWithObjects:@"49", @"74", @"27", @"73", @"20", @"6d", @"79", @"20", @"64", @"61", @"74", @"61", nil];
         NSMutableString * newString = [NSMutableString string];
         

@@ -105,6 +105,10 @@ NSString *const SongLoadedNotification = @"SongLoadedNotification";
 
 -(NSString *)getAlbumArt {
 	if(!info) return @"";
+    if ([info objectForKey:@"local_image"])
+    {
+        return [info objectForKey:@"local_image"];
+    }
 	return [info objectForKey:@"image"];
 }
 

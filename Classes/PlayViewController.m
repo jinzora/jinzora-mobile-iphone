@@ -61,9 +61,9 @@
 		[newPlaylist release];
 		
         
-        //UIBarButtonItem *temporaryDownloadButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Download" style:UIBarButtonItemStylePlain target:self action:@selector(downloadSong)];
-        //self.navigationItem.leftBarButtonItem = temporaryDownloadButtonItem;
-        //[temporaryDownloadButtonItem release];
+        UIBarButtonItem *temporaryRecommendButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Recommend" style:UIBarButtonItemStylePlain target:self action:@selector(recommendSong)];
+        self.navigationItem.leftBarButtonItem = temporaryRecommendButtonItem;
+        [temporaryRecommendButtonItem release];
         
 		UIBarButtonItem *temporayPlaylistButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"playlist_bar_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showPlaylist)];
 		self.navigationItem.rightBarButtonItem = temporayPlaylistButtonItem;
@@ -308,6 +308,56 @@
     [urlData release];
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([title isEqualToString:@"OK"])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/musubi-group-chat"]];
+    }
+}
+
+- (NSString *)encodedStringWithJSONObject:(NSDictionary *)obj
+{
+    NSData *data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+    if (data)
+    {
+        NSString *jsonStr = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+        jsonStr =
+        [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)jsonStr, NULL, NULL, NSUTF8StringEncoding) autorelease];
+        return jsonStr;
+    }
+    return nil;
+}
+
+- (IBAction)recommendSong
+{
+    NSLog(@"Recommend button pressed");
+    JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSMutableDictionary *musubi_dict = [NSMutableDictionary dictionaryWithCapacity:2];
+    [musubi_dict setValue:@"picture" forKey:@"type"];
+    NSMutableDictionary *json = [NSMutableDictionary dictionaryWithCapacity:3];
+    [json setValue:currentSong.artist forKey:@"caption"];
+    [json setValue:[currentSong.info objectForKey:@"image"] forKey:@"src"];
+    NSUInteger curr_serv = 0; //Default, change later
+    NSString *callback = [NSString stringWithFormat:@"jinzora://play/?artist=%@&title=%@&server=%@&user=%@&pass=%@", currentSong.artist, currentSong.title, [app.p getServforServAtIndex:curr_serv], [app.p getUserforServAtIndex:curr_serv], [app.p getPassforServAtIndex:curr_serv]];
+    [json setValue:callback forKey:@"callback"];
+    [musubi_dict setValue:json forKey:@"json"];
+    NSString *encoded_json = [self encodedStringWithJSONObject:musubi_dict];
+    NSURL *musubi_url = [NSURL URLWithString:[NSString stringWithFormat:@"musubi://share/%@", encoded_json]];
+    if ([[UIApplication sharedApplication] canOpenURL:musubi_url])
+    {
+        [[UIApplication sharedApplication] openURL:musubi_url];
+        NSLog(@"Musubi request sent");
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Musubi Not Found" message:@"Musubi must be installed to recommend songs! Do you want to install it?" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+        [alertView show];
+        [alertView release];
+    }
+}
+
 - (IBAction) downloadSong
 {
     if ([self determineRandom] == FALSE || [self songInDownloads])
@@ -538,7 +588,7 @@
 }
 
 -(void) scrobbleTrack{
-	JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
+    JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSLog(@"%@",[app.p getRepUser]);
 	NSLog(@"%@",[app.p getRepPassword]);
 	for(int i = 0; i<[app.p getNumFriends];i++){

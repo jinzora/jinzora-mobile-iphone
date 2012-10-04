@@ -45,15 +45,14 @@
     
     NSString *localImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:imageFile];
     [urlData writeToFile:localImagePath atomically:YES];
-    [currentSong.info setObject:localImagePath forKey:@"image"];
+    [currentSong.info setObject:localImagePath forKey:@"local_image"];
 }
 
 - (void)downloadImage{
     NSString *albumArtPath = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    BOOL fileExists = [fileManager fileExistsAtPath:albumArtPath];
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *) [[UIApplication sharedApplication] delegate];
-    if (fileExists || [albumArtPath isEqualToString:@""] || !currentSong.artist || !currentSong.title || [app.pvc determineRandom] == FALSE)
+    BOOL pathExists = [[NSFileManager defaultManager] fileExistsAtPath:albumArtPath];
+    if (pathExists || [albumArtPath isEqualToString:@""] || !currentSong.artist || !currentSong.title || [app.pvc determineRandom] == FALSE)
     {
         return;
     }
@@ -64,11 +63,11 @@
 -(void)loadImageinBack{
     [self downloadImage];
 	NSString *file = [[currentSong getAlbumArt] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	if([file isEqualToString:@""]) 
+	if([file isEqualToString:@""])
     {
         currentFile = @"noart";
     }
-	else if(![file isEqualToString:currentFile] && [file length] > 0)
+	if(![file isEqualToString:currentFile] && [file length] > 0)
     {
 		NSLog(@"Loading new album art: %@", file);
 		[currentFile release];
@@ -85,15 +84,14 @@
 - (void)loadImage {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[currentImage release];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    BOOL fileExists = [fileManager fileExistsAtPath:currentFile];
 	if([currentFile isEqualToString:@"noart"])
     {
         currentImage = [[UIImage imageNamed:@"defaultaa.jpg"] retain];
     }
-	else if (fileExists)
+	else if ([currentSong.info objectForKey:@"local_image"])
     {
-        currentImage = [[UIImage imageWithData: [NSData dataWithContentsOfFile:currentFile]] retain];
+        NSLog(@"Using downloaded image %@!", currentFile);
+        currentImage = [[UIImage imageWithData:[NSData dataWithContentsOfFile:currentFile]] retain];
     }
     else
     {

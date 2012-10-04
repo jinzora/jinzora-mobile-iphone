@@ -77,6 +77,59 @@
 	//[myPlayViewController.currentPlaylist writeOutToFile];
 }
 
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithCapacity:2] autorelease];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
+}
+
+- (void)switchToServer:(NSDictionary *)dict
+{
+    JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSUInteger index = 0;
+    BOOL add = YES;
+    for (index = 0; index < [app.p getNumServers]; index++)
+    {
+        if ([dict objectForKey:@"server"] == [app.p getServforServAtIndex:index])
+        {
+            add = NO;
+            break;
+        }
+    }
+    if (add)
+    {
+        index = [app.p getNumServers];
+        [app.p addServerNamed:[dict objectForKey:@"name"] username:[dict objectForKey:@"user"] password:[dict objectForKey:@"pass"] server:[dict objectForKey:@"url"]];
+    }
+    NSString *before = [[NSString alloc] initWithString:[app.p getCurrentApiURL]];
+	[app.p setCurrURLtoServAtIndex:index];
+    [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"server"];
+	NSString *after = [app.p getCurrentApiURL];
+	if(![before isEqualToString:after]) [app resetBrowse];
+    [before release];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSDictionary* dict = [self parseQueryString:[url query]];
+    if (!dict)
+    {
+        return NO;
+    }
+    [self switchToServer:[dict objectForKey:@"server"]];
+    NSString *note = [NSString stringWithFormat:@"Your friend recommends you listen to the artist %@'s song %@", [dict objectForKey:@"artist"], [dict objectForKey:@"song"]];
+    UIAlertView *recommendation = [[UIAlertView alloc] initWithTitle: @"Musubi recommendation" message:note delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [recommendation show];
+    [recommendation release];
+    return YES;
+}
 
 - (void)dealloc {
 	[p release];
