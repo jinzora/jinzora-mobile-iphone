@@ -77,37 +77,41 @@
 	//[myPlayViewController.currentPlaylist writeOutToFile];
 }
 
-- (NSDictionary *)parseQueryString:(NSString *)query {
-    NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithCapacity:2] autorelease];
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    
-    for (NSString *pair in pairs) {
-        NSArray *elements = [pair componentsSeparatedByString:@"="];
-        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [dict setObject:val forKey:key];
-    }
-    return dict;
-}
-
 - (void)switchToServer:(NSDictionary *)dict
 {
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSUInteger index = 0;
     BOOL add = YES;
+    NSString *serv = [dict objectForKey:@"server"];
+    
+    // Server URL processing
+    if ([serv hasSuffix:@"index.php"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"index.php" length]) ];
+    }
+    if ([serv hasSuffix:@"/"])
+    {
+        serv = [serv substringToIndex:([serv length] - [@"/" length])];
+    }
+    if ( !([serv hasPrefix:@"http://"] || [serv hasPrefix:@"https://"]) )
+    {
+        serv = [NSString stringWithFormat:@"http://%@", serv];
+    }
+
+    // Search for server in current servers
     for (index = 0; index < [app.p getNumServers]; index++)
     {
-        if ([dict objectForKey:@"server"] == [app.p getServforServAtIndex:index])
+        if ([serv isEqualToString:[app.p getServforServAtIndex:index]])
         {
             add = NO;
             break;
         }
     }
+    // Add server if not in current servers
     if (add)
     {
         index = [app.p getNumServers];
-        [app.p addServerNamed:[dict objectForKey:@"name"] username:[dict objectForKey:@"user"] password:[dict objectForKey:@"pass"] server:[dict objectForKey:@"url"]];
+        [app.p addServerNamed:[NSString stringWithFormat:@"Server %u", index] username:[dict objectForKey:@"user"] password:[dict objectForKey:@"password"] server:serv];
     }
     NSString *before = [[NSString alloc] initWithString:[app.p getCurrentApiURL]];
 	[app.p setCurrURLtoServAtIndex:index];
@@ -117,15 +121,29 @@
     [before release];
 }
 
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSString *json = [query stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    return dict;
+}
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    NSDictionary* dict = [self parseQueryString:[url query]];
+    NSString *encoded_str = [url.path substringFromIndex:1];
+    if (url.query)
+    {
+        encoded_str = [NSString stringWithFormat:@"%@?%@", encoded_str, url.query];
+    }
+    NSDictionary *dict = [self parseQueryString:encoded_str];
+    
     if (!dict)
     {
         return NO;
     }
-    [self switchToServer:[dict objectForKey:@"server"]];
-    NSString *note = [NSString stringWithFormat:@"Your friend recommends you listen to the artist %@'s song %@", [dict objectForKey:@"artist"], [dict objectForKey:@"song"]];
-    UIAlertView *recommendation = [[UIAlertView alloc] initWithTitle: @"Musubi recommendation" message:note delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    
+    [self switchToServer:dict];
+    NSString *note = [NSString stringWithFormat:@"Your friend recommends you listen to the artist %@'s song %@", [dict objectForKey:@"artist"], [dict objectForKey:@"title"]];
+    UIAlertView *recommendation = [[UIAlertView alloc] initWithTitle: @"Musubi recommendation" message:note delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [recommendation show];
     [recommendation release];
     return YES;

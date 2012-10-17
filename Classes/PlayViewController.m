@@ -319,32 +319,44 @@
 
 - (NSString *)encodedStringWithJSONObject:(NSDictionary *)obj
 {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
-    if (data)
+    NSData *data = [NSJSONSerialization dataWithJSONObject:obj options:NSUTF8StringEncoding error:nil];
+    if (!data)
     {
-        NSString *jsonStr = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-        jsonStr =
-        [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)jsonStr, NULL, NULL, NSUTF8StringEncoding) autorelease];
-        return jsonStr;
+        return nil;
     }
-    return nil;
+    NSString *jsonStr = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+    jsonStr = [jsonStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return jsonStr;
 }
 
 - (IBAction)recommendSong
 {
+    // Return if no current song
+    if (!currentSong.info)
+    {
+        NSLog(@"No song chosen to recommend");
+        return;
+    }
     NSLog(@"Recommend button pressed");
     JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSMutableDictionary *musubi_dict = [NSMutableDictionary dictionaryWithCapacity:2];
-    [musubi_dict setValue:@"picture" forKey:@"type"];
-    NSMutableDictionary *json = [NSMutableDictionary dictionaryWithCapacity:3];
-    [json setValue:currentSong.artist forKey:@"caption"];
-    [json setValue:[currentSong.info objectForKey:@"image"] forKey:@"src"];
-    NSUInteger curr_serv = 0; //Default, change later
-    NSString *callback = [NSString stringWithFormat:@"jinzora://play/?artist=%@&title=%@&server=%@&user=%@&pass=%@", currentSong.artist, currentSong.title, [app.p getServforServAtIndex:curr_serv], [app.p getUserforServAtIndex:curr_serv], [app.p getPassforServAtIndex:curr_serv]];
-    [json setValue:callback forKey:@"callback"];
-    [musubi_dict setValue:json forKey:@"json"];
-    NSString *encoded_json = [self encodedStringWithJSONObject:musubi_dict];
-    NSURL *musubi_url = [NSURL URLWithString:[NSString stringWithFormat:@"musubi://share/%@", encoded_json]];
+    
+    // First produce callback URL
+    NSUInteger serv = [[NSUserDefaults standardUserDefaults] integerForKey:@"server"];
+    
+    NSDictionary *jinzora = [NSDictionary dictionaryWithObjectsAndKeys:currentSong.artist, @"artist", currentSong.title, @"title", [app.p getServforServAtIndex:serv], @"server", [app.p getUserforServAtIndex:serv], @"user",
+                                  [app.p getPassforServAtIndex:serv], @"password", nil];
+    
+    NSString *callback = [NSString stringWithFormat:@"jinzora://play/%@", [self encodedStringWithJSONObject:jinzora]];
+    
+    // Create JSON
+    NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys: currentSong.artist, @"text", [currentSong.info objectForKey:@"image"], @"src", callback, @"callback", nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"picture", @"type", json, @"json", nil];
+    
+    // Encode JSON
+    
+    NSURL *musubi_url = [NSURL URLWithString:[NSString stringWithFormat:@"musubi://share/%@", [self encodedStringWithJSONObject:dict]]];
+    
+    // Send to Musubi
     if ([[UIApplication sharedApplication] canOpenURL:musubi_url])
     {
         [[UIApplication sharedApplication] openURL:musubi_url];
