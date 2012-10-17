@@ -128,6 +128,25 @@
     return dict;
 }
 
+- (NSMutableDictionary *) getMenuList: (NSDictionary *) dict {
+    JinzoraMobileAppDelegate *app = (JinzoraMobileAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *jz_path = [dict objectForKey:@"jz_path"];
+    // Some manual encoding, would prefer to fix this in later versions
+    jz_path = [jz_path stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    jz_path = [(NSString *)CFURLCreateStringByAddingPercentEscapes(nil, (CFStringRef)jz_path, NULL, NULL, kCFStringEncodingUTF8) autorelease];
+    jz_path = [jz_path stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+    NSString *serv = [[app.p getCurrentApiURL] stringByReplacingOccurrencesOfString:@"api.php" withString:@"index.php"];
+    NSString *file = [NSString stringWithFormat:@"%@&request=browse&jz_path=%@", [app.p getCurrentApiURL], jz_path];
+    NSString *playlink = [NSString stringWithFormat:@"%@&jz_path=%@&action=playlist&target=raw&type=node&ext.m3u", serv, jz_path];
+    NSMutableDictionary *menuList = [[NSMutableDictionary alloc]initWithCapacity:5];
+    [menuList setObject:@"album" forKey:@"type" ];
+    [menuList setObject:file forKey:@"browse"];
+    [menuList setObject:@"Browse Music" forKey:@"name"];
+    [menuList setObject:playlink forKey:@"playlink"];
+    [menuList setObject:@"true" forKey:@"recommend"];
+    return menuList;
+}
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSString *encoded_str = [url.path substringFromIndex:1];
     if (url.query)
@@ -140,9 +159,24 @@
     {
         return NO;
     }
-    
+    // Switch or find server if necessary
     [self switchToServer:dict];
-    NSString *note = [NSString stringWithFormat:@"Your friend recommends you listen to the artist %@'s song %@", [dict objectForKey:@"artist"], [dict objectForKey:@"title"]];
+    // Get menu list from server API
+    NSMutableDictionary* menuList = [self getMenuList:dict];
+    // Switch to browse view controller
+    bvc = [[BrowseViewController alloc] initWithStyle: UITableViewStylePlain withDict:menuList];
+    UINavigationController *browseNavController = [[[UINavigationController alloc] initWithRootViewController:bvc] autorelease];
+	browseNavController.navigationBar.tintColor = [UIColor blackColor];
+	[bvc release];
+	NSMutableArray *objects = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
+	[objects replaceObjectAtIndex:0 withObject:browseNavController];
+	tabBarController.viewControllers = objects;
+    
+    
+    tabBarController.selectedViewController = [tabBarController.viewControllers objectAtIndex:0];
+    
+    // Pop up notification
+    NSString *note = [NSString stringWithFormat:@"Your friend recommends you listen to %@'s song %@. Here's the whole album %@ for your listening pleasure!", [dict objectForKey:@"artist"], [dict objectForKey:@"title"], [dict objectForKey:@"album"]];
     UIAlertView *recommendation = [[UIAlertView alloc] initWithTitle: @"Musubi recommendation" message:note delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [recommendation show];
     [recommendation release];

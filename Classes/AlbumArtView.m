@@ -83,7 +83,11 @@
 
 - (void)loadImage {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[currentImage release];
+    if (currentImage)
+    {
+        [currentImage release];
+        currentImage = nil;
+    }
 	if([currentFile isEqualToString:@"noart"])
     {
         currentImage = [[UIImage imageNamed:@"defaultaa.jpg"] retain];

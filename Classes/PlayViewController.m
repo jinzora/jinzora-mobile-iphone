@@ -287,12 +287,12 @@
 	
     NSString *songPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
     BOOL write =[urlData writeToFile:songPath atomically:YES];
+    Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
     if (write == TRUE)
     {
         NSLog([NSString stringWithFormat:@"Write of file %@ successful", songPath]);
         NSLog(@"Song initialized!");
         // Add to playlist
-        Playlist* downloadPlaylist = [[Playlist alloc] initFromStandardFile];
         NSLog(@"Playlist read!");
         [downloadPlaylist addSong:currentSong atIndex:[downloadPlaylist songCount]];
         [downloadPlaylist printSongs];
@@ -301,7 +301,7 @@
     }
     else {
         NSLog([NSString stringWithFormat:@"Write of file %@ failed", songPath]);
-        result = [[UIAlertView alloc] initWithTitle: @"Error Saving File" message: @"Try deleting files from your downloads playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        result = [[UIAlertView alloc] initWithTitle: @"Error Saving File" message: @"Try removing songs from your downloads playlist" delegate: self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [result show];
         [result release];
     }
@@ -342,9 +342,12 @@
     
     // First produce callback URL
     NSUInteger serv = [[NSUserDefaults standardUserDefaults] integerForKey:@"server"];
+    NSString *jz_path = [currentSong.info objectForKey:@"path"];
+    NSRange last_slash = [jz_path rangeOfString:@"/" options:NSBackwardsSearch];
+    jz_path = [jz_path substringToIndex:last_slash.location];
+    NSLog(@"jz_path: %@", jz_path);
     
-    NSDictionary *jinzora = [NSDictionary dictionaryWithObjectsAndKeys:currentSong.artist, @"artist", currentSong.title, @"title", [app.p getServforServAtIndex:serv], @"server", [app.p getUserforServAtIndex:serv], @"user",
-                                  [app.p getPassforServAtIndex:serv], @"password", nil];
+    NSDictionary *jinzora = [NSDictionary dictionaryWithObjectsAndKeys:currentSong.artist, @"artist", currentSong.title, @"title", [currentSong getAlbum], @"album", jz_path, @"jz_path", [app.p getServforServAtIndex:serv], @"server", [app.p getUserforServAtIndex:serv], @"user", [app.p getPassforServAtIndex:serv], @"password", nil];
     
     NSString *callback = [NSString stringWithFormat:@"jinzora://play/%@", [self encodedStringWithJSONObject:jinzora]];
     

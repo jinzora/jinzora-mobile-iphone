@@ -59,11 +59,12 @@
 			[menuList addObject:letterarray];
 			[letterarray release];
 		} 
-		
+
 		UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
 		temporaryBarButtonItem.title = @"Back";
 		self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
 		[temporaryBarButtonItem release];
+
 	}
 	
 	return self;
@@ -76,6 +77,14 @@
 		self.title = [info objectForKey:@"name"];
 		self.baseInfo = info;
 		
+        if ([info objectForKey:@"recommend"])
+        {
+            UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(goToRoot)];
+            self.navigationItem.leftBarButtonItem = temporaryBarButtonItem;
+            [temporaryBarButtonItem release];
+        }
+        
+        
 		NSString *play = [info objectForKey:@"playlink"];
 		if(play != nil && [play length] > 5) {
 			UISegmentedControl *segmentedcontrol = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:[UIImage imageNamed:@"add_bar_icon.png"],[UIImage imageNamed:@"play_bar_icon.png"],nil]];
@@ -92,6 +101,12 @@
     return self;
 }
 
+- (IBAction)goToRoot {
+    self.baseInfo = nil;
+    BrowseViewController *bvc = [[BrowseViewController alloc] initWithStyle: UITableViewStylePlain];
+    [self.navigationController pushViewController:bvc animated:YES];
+    [bvc release];
+}
 
 - (void)segmentAction:(id)sender
 {
